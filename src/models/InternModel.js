@@ -2,8 +2,6 @@
 const mongoose = require('mongoose');
 
 const ObjectId = mongoose.Schema.Types.ObjectId
-
-
 const InterSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -15,8 +13,6 @@ const InterSchema = new mongoose.Schema({
         required:true,
         unique:true,
         trim:true
-        
-
     },
     mobile:{
         type:Number,
@@ -31,11 +27,8 @@ const InterSchema = new mongoose.Schema({
         trim:true
 
     },
-    isDeleted: {boolean, default: false}
+    isDeleted: {Boolean, default: false}
 }, { timestamps: true });
-    
-   
-
 
 module.exports = mongoose.model('Intern',InterSchema) 
 
