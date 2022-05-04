@@ -150,13 +150,13 @@ const deleteData = async function (req, res) {
 
     try {
         const data = req.query
-        console.log(data)
+       // console.log(data)
 
         if (!data) return res.status(400).send({ error: "Enter Valid Input " })
 
-        const dataforUpdation = { ...data, isDeleted:true, isDeletedAt:new Date() }
+        const dataforUpdation = {...data, isDeleted:true, isDeletedAt:new Date() }
 
-        const result = await blogModel.updateMany(data, dataforUpdation, { new: true })
+        const result = await blogModel.updateMany( data,dataforUpdation, { new: true })
 
         if (!result) res.status(404).send({ error: "No Data Found" })
 
