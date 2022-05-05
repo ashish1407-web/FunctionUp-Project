@@ -29,10 +29,13 @@ return res.status(500).send(err.message);
 
 const finddata=async function(req,res){
 try{
-let Name = req.query;
-
-if (!Name) { return res.status(400).send({ status: false, message: "Name is required" }) }
-let collegeDetail = await collegemodel.findOne({ name: Name, isDeleted: false })
+let Data = req.query;
+let keys=Object.keys(Data);
+console.log(keys);
+if(keys.length==0) return res.status(400).send({Error:"One Query Required"});
+if(keys.length>1) return res.status(400).send({status:false,Error:"you have to give only one Query"});
+let collegeDetail = await collegemodel.findOne({ name: Data.collegeName, isDeleted: false })
+console.log(collegeDetail);
 if (!collegeDetail) { res.status(404).send({ status: false, msg: "collegeDetail not found" }) }
 let id = collegeDetail._id.toString()
 let check = await Internmodel.find({ collegeId: id })
