@@ -19,7 +19,6 @@ const CollegeSchema = new mongoose.Schema({
         type:String,
         required:true,
 
-
     },
     isDeleted: {
         type:Boolean,
@@ -28,3 +27,15 @@ const CollegeSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 module.exports = mongoose.model('College',CollegeSchema )
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,11 +20,7 @@ const InterSchema = new mongoose.Schema({
             required:true,
             trim:true
         },
-            
-          
-    
-        
-       
+                       
     collegeId:{
         type:ObjectId,
         ref:"College",
@@ -32,10 +28,10 @@ const InterSchema = new mongoose.Schema({
         trim:true
 
     },
-    isDeleted: {Boolean, default: false}
-}, { timestamps: true });
-
-    
+    isDeleted:{
+      type:Boolean, 
+      default: false}
+}, { timestamps: true });    
 module.exports = mongoose.model('Intern',InterSchema) 
 
 
