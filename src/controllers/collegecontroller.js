@@ -5,7 +5,6 @@ const valid = function (value) {
 if (typeof value !== "string" || value.trim().length == 0) { return false }
 return true
 }
-
 const createcollege = async function (req, res){
 try{
     let college=req.body
@@ -30,8 +29,8 @@ return res.status(500).send(err.message);
 
 const finddata=async function(req,res){
 try{
-let Name = req.query.name
-console.log(Name);
+let Name = req.query;
+
 if (!Name) { return res.status(400).send({ status: false, message: "Name is required" }) }
 let collegeDetail = await collegemodel.findOne({ name: Name, isDeleted: false })
 if (!collegeDetail) { res.status(404).send({ status: false, msg: "collegeDetail not found" }) }
@@ -50,3 +49,6 @@ res.status(500).send(err.message);
 }
 module.exports.createcollege=createcollege
 module.exports.finddata=finddata
+
+
+
