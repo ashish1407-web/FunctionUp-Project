@@ -34,6 +34,7 @@ let keys=Object.keys(Data);
 console.log(keys);
 if(keys.length==0) return res.status(400).send({Error:"One Query Required"});
 if(keys.length>1) return res.status(400).send({status:false,Error:"you have to give only one Query"});
+if(keys[0]!='collegeName') return res.status(400).send({status:false,Error:"Only collegeName is required as a query"})
 let collegeDetail = await collegemodel.findOne({ name: Data.collegeName, isDeleted: false })
 console.log(collegeDetail);
 if (!collegeDetail) { res.status(404).send({ status: false, msg: "collegeDetail not found" }) }
