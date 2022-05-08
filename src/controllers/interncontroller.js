@@ -8,8 +8,7 @@ return true
 
 const createIntern = async function (req, res){
 try{
-    let intern=req.query.name;
-    console.log(intern);
+    let intern=req.body;
     if (!intern.name) { return res.status(400).send({ status: false, message: "name  is required" }) }
     if (!intern.email) { return res.status(400).send({ status: false, message: "email is required" }) }
     const emailId=await Internmodel.find({email:intern.email});

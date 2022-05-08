@@ -9,7 +9,7 @@ const CollegeSchema = new mongoose.Schema({
         required:true,
         trim:true
     },
-    fullname:{
+    fullName:{
         type:String,
         required:true,
         trim:true
@@ -20,9 +20,9 @@ const CollegeSchema = new mongoose.Schema({
         required:true,
 
     },
-    isDeleted: {
-        type:Boolean,
-        default:false
+    isDeleted:{
+    type:Boolean,
+    default:false
     }
 
 }, { timestamps: true });
